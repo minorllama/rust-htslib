@@ -1439,7 +1439,6 @@ impl HeaderView {
     }
 
     pub fn tid2name(&self, tid: u32) -> &[u8] {
-        // unsafe { ffi::CStr::from_ptr(htslib::sam_hdr_tid2name(self.inner, tid as i32)).to_bytes() }
         let ptr = unsafe { htslib::sam_hdr_tid2name(self.inner, tid as i32) };
         if ptr.is_null() {
             b"" 
