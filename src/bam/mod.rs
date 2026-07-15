@@ -1441,7 +1441,7 @@ impl HeaderView {
     pub fn tid2name(&self, tid: u32) -> &[u8] {
         let ptr = unsafe { htslib::sam_hdr_tid2name(self.inner, tid as i32) };
         if ptr.is_null() {
-            b"" 
+            b""
         } else {
             unsafe { ffi::CStr::from_ptr(ptr).to_bytes() }
         }
@@ -3187,7 +3187,7 @@ CCCCCCCCCCCCCCCCCCC"[..],
         let actual = reader.index_stats().unwrap();
         assert_eq!(expected, actual);
     }
-    
+
     #[test]
     fn test_nonexistent_tidname() {
         let header = Header::new();
